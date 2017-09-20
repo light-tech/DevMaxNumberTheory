@@ -1,0 +1,77 @@
+{
+"version":1,
+"name":"Number Theory Library",
+"build_definitions": [
+	{
+		"name":"Compile one",
+		"build_steps": [
+			{
+				"action":"compile",
+				"sys_include_dir":["ucrt","msvc"],
+				"include_dir":["include"],
+				"inputs":["src/BasicThreadPool.cpp"],
+				"outputdir":"bin"
+			}
+		]
+	},
+	{
+		"name":"Compile source",
+		"build_steps": [
+			{
+				"action":"compile",
+				"sys_include_dir":["ucrt","msvc"],
+				"include_dir":["include"],
+				"inputs":["src/BasicThreadPool.cpp", "src/LLL_FP.cpp", "src/ZZ_pXCharPoly.cpp", "src/mat_lzz_p.cpp",
+"src/FFT.cpp", "src/LLL_QP.cpp", "src/ZZ_pXFactoring.cpp", "src/mat_lzz_pE.cpp",
+"src/FacVec.cpp", "src/LLL_RR.cpp", "src/ctools.cpp", "src/mat_poly_ZZ.cpp",
+"src/GF2.cpp", "src/LLL_XD.cpp", "src/fileio.cpp", "src/mat_poly_ZZ_p.cpp",
+"src/GF2E.cpp", "src/MatPrime.cpp", "src/lip.cpp", "src/mat_poly_lzz_p.cpp",
+"src/GF2EX.cpp", "src/RR.cpp", "src/lzz_p.cpp", "src/quad_float.cpp",
+"src/GF2EXFactoring.cpp", "src/WordVector.cpp", "src/lzz_pE.cpp", "src/thread.cpp",
+"src/GF2X.cpp", "src/ZZ.cpp", "src/lzz_pEX.cpp", "src/tools.cpp",
+"src/GF2X1.cpp", "src/ZZVec.cpp", "src/lzz_pEXFactoring.cpp", "src/vec_GF2.cpp",
+"src/GF2XFactoring.cpp", "src/ZZX.cpp", "src/lzz_pX.cpp", "src/vec_GF2E.cpp",
+"src/GF2XVec.cpp", "src/ZZX1.cpp", "src/lzz_pX1.cpp", "src/vec_RR.cpp",
+"src/G_LLL_FP.cpp", "src/ZZXCharPoly.cpp", "src/lzz_pXCharPoly.cpp", "src/vec_ZZ.cpp",
+"src/G_LLL_QP.cpp", "src/ZZXFactoring.cpp", "src/lzz_pXFactoring.cpp", "src/vec_ZZ_p.cpp",
+"src/G_LLL_RR.cpp", "src/ZZ_p.cpp", "src/mat_GF2.cpp", "src/vec_ZZ_pE.cpp",
+"src/G_LLL_XD.cpp", "src/ZZ_pE.cpp", "src/mat_GF2E.cpp", "src/vec_lzz_p.cpp",
+"src/GetPID.cpp", "src/ZZ_pEX.cpp", "src/mat_RR.cpp", "src/vec_lzz_pE.cpp",
+"src/GetTime.cpp", "src/ZZ_pEXFactoring.cpp", "src/mat_ZZ.cpp", "src/xdouble.cpp",
+"src/HNF.cpp", "src/ZZ_pX.cpp", "src/mat_ZZ_p.cpp",
+"src/LLL.cpp", "src/ZZ_pX1.cpp", "src/mat_ZZ_pE.cpp"],
+				"outputdir":"bin"
+			}
+		]
+	},
+	{
+		"name":"Make library",
+		"build_steps": [
+			{
+				"action":"link",
+				"args":["/defaultlib:msvcrt.lib"],
+				"inputs":["src/BasicThreadPool.o", "src/LLL_FP.o", "src/ZZ_pXCharPoly.o", "src/mat_lzz_p.o",
+"src/FFT.o", "src/LLL_QP.o", "src/ZZ_pXFactoring.o", "src/mat_lzz_pE.o",
+"src/FacVec.o", "src/LLL_RR.o", "src/ctools.o", "src/mat_poly_ZZ.o",
+"src/GF2.o", "src/LLL_XD.o", "src/fileio.o", "src/mat_poly_ZZ_p.o",
+"src/GF2E.o", "src/MatPrime.o", "src/lip.o", "src/mat_poly_lzz_p.o",
+"src/GF2EX.o", "src/RR.o", "src/lzz_p.o", "src/quad_float.o",
+"src/GF2EXFactoring.o", "src/WordVector.o", "src/lzz_pE.o", "src/thread.o",
+"src/GF2X.o", "src/ZZ.o", "src/lzz_pEX.o", "src/tools.o",
+"src/GF2X1.o", "src/ZZVec.o", "src/lzz_pEXFactoring.o", "src/vec_GF2.o",
+"src/GF2XFactoring.o", "src/ZZX.o", "src/lzz_pX.o", "src/vec_GF2E.o",
+"src/GF2XVec.o", "src/ZZX1.o", "src/lzz_pX1.o", "src/vec_RR.o",
+"src/G_LLL_FP.o", "src/ZZXCharPoly.o", "src/lzz_pXCharPoly.o", "src/vec_ZZ.o",
+"src/G_LLL_QP.o", "src/ZZXFactoring.o", "src/lzz_pXFactoring.o", "src/vec_ZZ_p.o",
+"src/G_LLL_RR.o", "src/ZZ_p.o", "src/mat_GF2.o", "src/vec_ZZ_pE.o",
+"src/G_LLL_XD.o", "src/ZZ_pE.o", "src/mat_GF2E.o", "src/vec_lzz_p.o",
+"src/GetPID.o", "src/ZZ_pEX.o", "src/mat_RR.o", "src/vec_lzz_pE.o",
+"src/GetTime.o", "src/ZZ_pEXFactoring.o", "src/mat_ZZ.o", "src/xdouble.o",
+"src/HNF.o", "src/ZZ_pX.o", "src/mat_ZZ_p.o",
+"src/LLL.o", "src/ZZ_pX1.o", "src/mat_ZZ_pE.o"],
+				"output":"numtheory.lib"
+			}
+		]
+	}
+]
+}
