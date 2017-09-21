@@ -51,7 +51,7 @@
 		"build_steps": [
 			{
 				"action":"link",
-				"args":["/defaultlib:msvcrt.lib"],
+				"args":["/lib"],
 				"inputs":["src/BasicThreadPool.o", "src/LLL_FP.o", "src/ZZ_pXCharPoly.o", "src/mat_lzz_p.o",
 "src/FFT.o", "src/LLL_QP.o", "src/ZZ_pXFactoring.o", "src/mat_lzz_pE.o",
 "src/FacVec.o", "src/LLL_RR.o", "src/ctools.o", "src/mat_poly_ZZ.o",
