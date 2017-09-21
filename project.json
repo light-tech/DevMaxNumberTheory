@@ -10,7 +10,7 @@
 				"args":["-mrelax-all", "-fms-extensions", "-fms-compatibility", "-fms-compatibility-version=19.10.25017","-std=c++14", "-fdelayed-template-parsing","-fcxx-exceptions","-fexceptions","-x","c++"],
 				"sys_include_dir":["ucrt","msvc"],
 				"include_dir":["include"],
-				"inputs":["src/BasicThreadPool.cpp"],
+				"inputs":["src/lip.cpp"],
 				"outputdir":"bin"
 			}
 		]
@@ -72,6 +72,44 @@
 "src/HNF.o", "src/ZZ_pX.o", "src/mat_ZZ_p.o",
 "src/LLL.o", "src/ZZ_pX1.o", "src/mat_ZZ_pE.o"],
 				"output":"numtheory.lib"
+			}
+		]
+	},
+	{
+		"name":"Compile test",
+		"build_steps": [
+			{
+				"action":"compile",
+				"args":["-mrelax-all", "-fms-extensions", "-fms-compatibility", "-fms-compatibility-version=19.10.25017","-std=c++14", "-fdelayed-template-parsing","-fcxx-exceptions","-fexceptions","-x","c++"],
+				"sys_include_dir":["ucrt","msvc"],
+				"include_dir":["include"],
+				"inputs":["tests/BerlekampTest.cpp",  "tests/GF2XTest.cpp",     "tests/RRTest.cpp",      "tests/lzz_pEXTest.cpp",
+"tests/BitMatTest.cpp",     "tests/LLLTest.cpp",      "tests/ThreadTest.cpp",  "tests/mat_lzz_pTest.cpp",
+"tests/CanZassTest.cpp",    "tests/MatrixTest.cpp",   "tests/Timing.cpp",      "tests/subset.cpp",
+"tests/CharPolyTest.cpp",   "tests/MoreFacTest.cpp",  "tests/ZZTest.cpp",
+"tests/ExceptionTest.cpp",  "tests/QuadTest.cpp",     "tests/ZZXFacTest.cpp",
+"tests/GF2EXTest.cpp",      "tests/QuickTest.cpp",    "tests/ZZ_pEXTest.cpp"],
+				"outputdir":"bin",
+				"comment":[]
+			}
+		]
+	},
+	{
+		"name":"Make test executable",
+		"build_steps": [
+			{
+				"action":"link",
+				"args":["/defaultlib:msvcrt.lib"],
+				"sys_lib_dir":[""],
+				"inputs":["numtheory.lib", "tests/QuadTest.o"],
+				"output":"QuadTest.exe",
+				"comment":["tests/BerlekampTest.o",  "tests/GF2XTest.o",     "tests/RRTest.o",      "tests/lzz_pEXTest.o",
+"tests/BitMatTest.o",     "tests/LLLTest.o",      "tests/ThreadTest.o",  "tests/mat_lzz_pTest.o",
+"tests/CanZassTest.o",    "tests/MatrixTest.o",   "tests/Timing.o",      "tests/subset.o",
+"tests/CharPolyTest.o",   "tests/MoreFacTest.o",  "tests/ZZTest.o",
+"tests/ExceptionTest.o",  "tests/QuadTest.o",     "tests/ZZXFacTest.o",
+"tests/GF2EXTest.o",      "tests/QuickTest.o",    "tests/ZZ_pEXTest.o"],
+				"commandline":"lld-link /libpath: /defaultlib:msvcrt.lib ../numtheory.lib /out:QT.exe LLLTest.o"
 			}
 		]
 	}
